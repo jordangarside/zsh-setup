@@ -48,7 +48,29 @@ zinit ice wait'0c' as'command' lucid \
   src'init.zsh'
 zinit light ajeetdsouza/zoxide
 
-# Manual Aliases
+# lsd -- better `ls` command
+install_lsd() {
+    if command -v pacman &> /dev/null; then
+        echo "Detected Arch Linux, installing lsd with pacman..."
+        sudo pacman -S --noconfirm lsd
+    elif command -v apt &> /dev/null; then
+        echo "Detected Debian/Ubuntu, installing lsd with apt..."
+        sudo apt install -y lsd
+    elif command -v brew &> /dev/null; then
+        echo "Detected macOS, installing lsd with Homebrew..."
+        brew install lsd
+    else
+        echo "⚠️ WARNING: Could not detect a supported package manager (pacman, apt, or brew)"
+        echo "👉 Please install lsd manually for your system"
+        return 1
+    fi
+}
+if ! command -v lsd &> /dev/null; then
+    echo "lsd not found, attempting to install..."
+    install_lsd
+    # Refresh the command hash table
+    rehash
+fi
 source ~/.zsh-setup/plugins/lsd.zsh # replace ls with lsd
 
 autoload -Uz compinit; compinit
