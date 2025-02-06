@@ -7,6 +7,7 @@ source ~/.zsh-setup/.zinit.zsh
 # Manage ZSH History
 HISTSIZE=500000
 SAVEHIST=500000
+HISTFILE="$HOME/.zsh_history"
 setopt   EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format
 unsetopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits
 setopt   INC_APPEND_HISTORY_TIME   # Write to the history file immediately with timestamp
