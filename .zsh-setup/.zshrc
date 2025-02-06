@@ -23,14 +23,14 @@ unsetopt HIST_VERIFY               # Don't execute immediately upon history expa
 unsetopt HIST_BEEP                 # Beep when accessing nonexistent history
 
 # Snap
-export PATH="/snap/bin:$PATH"
+PATH="/snap/bin:$PATH"
 
 # Proto
-export PROTO_HOME="$HOME/.proto"
-export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH"
+PROTO_HOME="$HOME/.proto"
+PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH"
 
 # Rust
 . "$HOME/.cargo/env"
 
 # Go
-export PATH="$PATH:$HOME/go/bin"
+PATH="$PATH:$HOME/go/bin"
